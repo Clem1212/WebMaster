@@ -8,7 +8,7 @@ body{
 }
 /*=======Navbar===*/
 .bg{
-    background: #077cb3;
+    background: #50c04d;
 }
 .main-navbar-light{
     background:transparent!important;
@@ -701,11 +701,11 @@ p{
     padding:0 0 30px 0;
     color:#000;
     font-size:16px;
-    background:#077cb3;
+    background: #50c04d;
 }
 #footer .footer-newsletter{
     padding:50px 0;
-    background:#077cb3;
+    background: #50c04d;
     text-align:center;
     font-size:15px;
 }
