@@ -71,8 +71,9 @@
     </div>
 </section>
 <section class="about-section mt-5">
-  <center> <img src="Menu.png" style="height:800px"> </center>
-</section>
+    <center> <img src="Menu.png" class="fade-in" style="height:800px"> </center>
+  </section>
+  
 
 <br>
 <br>
@@ -96,10 +97,38 @@
 
 
 
+<script>
+    //animation
+    document.addEventListener("DOMContentLoaded", function () {
+        const fadeInElements = document.querySelectorAll(".fade-in");
+    
+        function checkVisibility() {
+            fadeInElements.forEach((element) => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.9) {
+                    element.classList.add("visible");
+                }
+            });
+        }
+    
+        window.addEventListener("scroll", checkVisibility);
+        checkVisibility(); // Run on load in case the element is already in view
+    });
+    </script>
+    
+<style>
+    .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
 
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-
-
+</style>
 
 
 

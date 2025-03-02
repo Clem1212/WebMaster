@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <title>Sustainability of the Food</title>
+    <script src="script.js"></script>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -54,7 +56,7 @@
       </div>
     </nav>
    
-    <section class="hero-wrap"
+    <section class="hero-wrap " 
     style="background-image:url('https://images.pexels.com/photos/4552114/pexels-photo-4552114.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
     <div class="overlay"></div>
     <div class="container">
@@ -69,7 +71,7 @@
         </div>
     </div>
 </section>
-<section class="about-section mt-5">
+<section class="about-section mt-5 clemfade">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6 text-center heading-section mb-5">
@@ -368,6 +370,59 @@
                         <!-------><br><br>
                         <br><br><br>
  
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const fadeInElements = document.querySelectorAll(".fade-in");
+    
+        function checkVisibility() {
+            fadeInElements.forEach((element) => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.9) {
+                    element.classList.add("visible");
+                }
+            });
+        }
+    
+        window.addEventListener("scroll", checkVisibility);
+        checkVisibility(); // Run on load in case the element is already in view
+    });
+    </script>
+    
+<style>
+    .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Add clemfade class to all sections except hero-wrap
+        const clemfadeSections = document.querySelectorAll("body > *:not(.hero-wrap)");
+    
+        function checkVisibility() {
+            clemfadeSections.forEach((section) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    section.classList.add("visible");
+                }
+            });
+        }
+    
+        // Initial check in case some elements are in view already
+        checkVisibility();
+    
+        // Trigger check when scrolling
+        window.addEventListener("scroll", checkVisibility);
+    });
+    </script>
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
